@@ -1,3 +1,4 @@
+// app/login.tsx (假设这是 LoginView 页面)
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -7,21 +8,14 @@ const LoginView: React.FC = () => {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
-  // Handle login button press
   const handleLogin = () => {
     console.log('Login button pressed');
-    // Add login logic here
+    // 执行登录逻辑
   };
 
-  // Handle sign-up text press
   const handleSignup = () => {
-    navigation.navigate('Signin'); // Navigate to SigninView
-  };
-
-  // Handle forgot password text press
-  const handleForgotPassword = () => {
-    console.log('Forgot password button pressed');
-    // Add password recovery logic here
+    console.log('Sign up button pressed');
+    navigation.navigate('SigninView');  // 跳转到 SigninView 页面
   };
 
   return (
@@ -49,10 +43,6 @@ const LoginView: React.FC = () => {
 
       <TouchableOpacity onPress={handleSignup}>
         <Text style={styles.linkText}>Don't have an account? Sign up</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={handleForgotPassword}>
-        <Text style={styles.linkText}>Forgot password?</Text>
       </TouchableOpacity>
     </View>
   );
