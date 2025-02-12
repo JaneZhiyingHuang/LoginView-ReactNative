@@ -1,4 +1,4 @@
-// app/login.tsx (假设这是 LoginView 页面)
+// app/loginView.tsx 
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -6,20 +6,25 @@ import { useNavigation } from '@react-navigation/native';
 const LoginView: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  
   const navigation = useNavigation();
 
   const handleLogin = () => {
     console.log('Login button pressed');
-    // 执行登录逻辑
   };
 
-  const handleSignup = () => {
-    console.log('Sign up button pressed');
-    navigation.navigate('SigninView');  // 跳转到 SigninView 页面
+  const forgotPW = () => {
+    console.log('ForgotPW button pressed');
+  };
+
+  const navigateSignup = () => {
+    console.log('NavigateSignup button pressed');
+    navigation.navigate('SignupView');  
   };
 
   return (
     <View style={styles.container}>
+      <Text style={styles.label}>Login</Text>
       <Text style={styles.label}>Username</Text>
       <TextInput
         style={styles.input}
@@ -36,12 +41,15 @@ const LoginView: React.FC = () => {
         value={password}
         onChangeText={setPassword}
       />
+      <TouchableOpacity onPress={forgotPW}>
+      <Text style={styles.linkText}>Forgot password?</Text>
+      </TouchableOpacity>
 
       <View style={styles.buttonContainer}>
         <Button title="Login" onPress={handleLogin} />
       </View>
 
-      <TouchableOpacity onPress={handleSignup}>
+      <TouchableOpacity onPress={navigateSignup}>
         <Text style={styles.linkText}>Don't have an account? Sign up</Text>
       </TouchableOpacity>
     </View>
@@ -69,7 +77,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   linkText: {
-    color: 'blue',
+    color: 'orange',
     marginTop: 10,
     textAlign: 'center',
   },
