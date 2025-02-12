@@ -24,7 +24,12 @@ const LoginView: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Login</Text>
+
+      {/* Title */}
+      <Text style={styles.title}>Login</Text>
+      <Text style={styles.subtitle}>Please sign in to continue.</Text>
+        
+        {/* Form Inputs */}
       <Text style={styles.label}>Username</Text>
       <TextInput
         style={styles.input}
@@ -45,9 +50,10 @@ const LoginView: React.FC = () => {
       <Text style={styles.linkText}>Forgot password?</Text>
       </TouchableOpacity>
 
-      <View style={styles.buttonContainer}>
-        <Button title="Login" onPress={handleLogin} />
-      </View>
+      {/* Custom Login Button */}
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity onPress={navigateSignup}>
         <Text style={styles.linkText}>Don't have an account? Sign up</Text>
@@ -62,9 +68,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  
+  title: {
+    fontSize: 36,
+    marginBottom: 5,
+    fontWeight: 'bold',
+    // textAlign: 'center',
+  },
+  subtitle: {
+    fontSize: 18,
+    marginBottom: 40,
+    color: 'grey',
+  },  
   label: {
     fontSize: 16,
     marginBottom: 5,
+    fontWeight: 'bold',
   },
   input: {
     borderWidth: 1,
@@ -73,12 +92,20 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     borderRadius: 5,
   },
-  buttonContainer: {
-    marginBottom: 15,
+ button: {
+    backgroundColor: 'orange',
+    padding: 8,
+    borderRadius: 30,
+    alignItems: 'center', 
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
   },
   linkText: {
-    color: 'orange',
-    marginTop: 10,
+    color: 'grey',
+    marginBottom: 30,
+    marginTop: 20,
     textAlign: 'center',
   },
 });

@@ -30,7 +30,7 @@ const SignupView: React.FC = () => {
       </TouchableOpacity>
 
       {/* Title */}
-      <Text style={styles.label}>Create Account</Text>
+      <Text style={styles.title}>Create Account</Text>
 
       {/* Form Inputs */}
       <View style={styles.form}>
@@ -71,8 +71,9 @@ const SignupView: React.FC = () => {
       </View>
 
       {/* Signup Button */}
-      <Button title="Sign Up" onPress={handleSignup} />
-
+      <TouchableOpacity style={styles.button} onPress={handleSignup}>
+        <Text style={styles.buttonText}>Sign up</Text>
+      </TouchableOpacity>
       {/* Link to go back to Sign In */}
       <TouchableOpacity onPress={NavigateLogin}>
         <Text style={styles.linkText}>Already have an account?Sign in</Text>
@@ -85,7 +86,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     padding: 20,
   },
   arrowButton: {
@@ -93,8 +93,14 @@ const styles = StyleSheet.create({
     top: 40,
     left: 20,
   },
+  title: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
   form: {
     width: '100%',
+
   },
   label: {
     fontSize: 16,
@@ -102,15 +108,27 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   input: {
-    height: 40,
-    borderColor: 'gray',
     borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
     marginBottom: 15,
-    paddingHorizontal: 10,
     borderRadius: 5,
   },
+  button: {
+    backgroundColor: 'orange',
+    padding: 8,
+    borderRadius: 30,
+    width: '100%',
+    alignItems: 'center', 
+    marginTop: 20,
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+  },
   linkText: {
-    color: 'orange',
+    color: 'grey',
     marginTop: 10,
     textAlign: 'center',
   },
